@@ -17,9 +17,27 @@ Route::get('/articoli', function () {
     
 //$articoli = [];
 
-    return view('pages.articoli', ['articoli' => $articoli]);
+    return view('pages.articoli', ['articolo' => $articoli]);
 }) 
 ->name ('articoli');
+
+Route::get('/articolo/{articolo}', function ($articolo) {
+
+    $index = $articolo;
+
+    $articoli = [
+        ['titolo' => 'Camminare il mondo', 'categoria' => 'Cammino', 'descrizione' => '100 giorni di cammino in Europa'],
+        ['titolo' => 'Viaggiare in autostop', 'categoria' => 'Autostop', 'descrizione' => 'Guida pratica'],
+        ['titolo' => 'Mete calde invernali', 'categoria' => 'Esplorazione', 'descrizione' => 'viaggio alle Maldive'],
+    ];
+
+if(array_key_exists($index, $articoli)) {
+    return view ('pages.articolo', ['articolo' => $articoli[$index]]);
+} else {
+    abort(404);
+}
+    })
+    ->name('articolo');
 
 Route::get('/contatti', function () {
     
@@ -38,18 +56,3 @@ Route::get('/chisono', function () {
     ]);
 }) 
 ->name('chisono');
-
-Route::get('/articolo/{articolo}', function($articolo) {
-
-    $index = $articolo;
-
-    $articoli = [
-        ['titolo' => 'Camminare il mondo', 'categoria' => 'Cammino', 'descrizione' => '100 giorni di cammino in Europa'],
-        ['titolo' => 'Viaggiare in autostop', 'categoria' => 'Autostop', 'descrizione' => 'Guida pratica'],
-        ['titolo' => 'Mete calde invernali', 'categoria' => 'Esplorazione', 'descrizione' => 'viaggio alle Maldive'],
-    ];
-
-    return view ('pages.articolo', ['articolo' => $articoli[$index]]);
-
-    })
-    ->name('articolo');

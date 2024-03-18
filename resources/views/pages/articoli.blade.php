@@ -22,13 +22,13 @@
 <div class="container">
     @if($articoli)
     <ul class="list-unstyled">
-        @foreach($articoli as $articoli)
+    @foreach($articoli as $index => $articoli)
         <li>
             <div class="card mb-2">
                 <div class="card-body">
                 <span>Categoria: {{ $articoli['categoria'] }}</span>
                 <!-- perchè non prende la classe titolo?? -->
-                <h4 class="titolo"><a href="{{ route('articolo')}}">{{ $articoli['titolo'] }}</a></h4> 
+                <h4 class="titolo"><a href="{{ route('articolo', $index )}}">{{ $articoli['titolo'] }}</a></h4> 
                 <p>{{ $articoli['descrizione'] }}</p>
                 <div class="text-end">
                     <a href="">Leggi</a>
