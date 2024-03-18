@@ -17,7 +17,7 @@ Route::get('/articoli', function () {
     
 //$articoli = [];
 
-    return view('pages.articoli', ['articolo' => $articoli]);
+    return view('pages.articoli', ['articoli' => $articoli]); 
 }) 
 ->name ('articoli');
 
