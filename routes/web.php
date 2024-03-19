@@ -7,52 +7,14 @@ Route::get('/', function () {
 }) 
 ->name ('welcome');
 
-Route::get('/articoli', function () {
-    
-    $articoli = [
-        ['titolo' => 'Camminare il mondo', 'categoria' => 'Cammino', 'descrizione' => '100 giorni di cammino in Europa'],
-        ['titolo' => 'Viaggiare in autostop', 'categoria' => 'Autostop', 'descrizione' => 'Guida pratica'],
-        ['titolo' => 'Mete calde invernali', 'categoria' => 'Esplorazione', 'descrizione' => 'viaggio alle Maldive'],
-    ];
-    
-//$articoli = [];
-
-    return view('pages.articoli', ['articoli' => $articoli]); 
-}) 
+Route::get('/articoli', [App\Http\Controllers\PagesController::class, 'articles'] ) 
 ->name ('articoli');
 
-Route::get('/articolo/{articolo}', function ($articolo) {
-
-    $index = $articolo;
-
-    $articoli = [
-        ['titolo' => 'Camminare il mondo', 'categoria' => 'Cammino', 'descrizione' => '100 giorni di cammino in Europa'],
-        ['titolo' => 'Viaggiare in autostop', 'categoria' => 'Autostop', 'descrizione' => 'Guida pratica'],
-        ['titolo' => 'Mete calde invernali', 'categoria' => 'Esplorazione', 'descrizione' => 'viaggio alle Maldive'],
-    ];
-
-if(array_key_exists($index, $articoli)) {
-    return view ('pages.articolo', ['articolo' => $articoli[$index]]);
-} else {
-    abort(404);
-}
-    })
+Route::get('/articolo/{articolo}',[App\Http\Controllers\PagesController::class, 'article'])
     ->name('articolo');
 
-Route::get('/contatti', function () {
-    
-    return view('pages.contatti');
-}) 
+Route::get('/contatti', [App\Http\Controllers\PagesController::class, 'contacts']) 
 ->name ('contatti');
 
-Route::get('/chisono', function () {
-    
-    // $list = ['nome','cognome','età'];
-    /* il file della vista si trova nella sottocartella */
-    return view ('pages.chisono', [
-        'title' => 'Ciao',
-        'description' => 'mi chiamo Alberto <br> sono nato a Catania <br> ho 35 anni', 
-        // 'list' => $list,
-    ]);
-}) 
+Route::get('/chisono', [App\Http\Controllers\PagesController::class, 'about'])
 ->name('chisono');
