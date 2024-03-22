@@ -16,6 +16,9 @@ class PagesController extends Controller
         ];
         
         return view('pages.articoli', ['articoli' => $articoli]); 
+        
+        /* dump and die stampa il contenuto della variabile/i, passata nell'argomento ed interrompe l'esecuzione del codice */
+//dd($this->articles();
     }
 
     public function article ($articolo) 
@@ -50,6 +53,8 @@ public function about ()
         // 'list' => $list,
     ]);
 }
+
+
 }
 
 

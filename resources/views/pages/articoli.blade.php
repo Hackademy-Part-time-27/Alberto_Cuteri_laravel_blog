@@ -9,12 +9,7 @@
 </head>
 <body>
     <div class="container">
-<nav class="nav">
-    <a class="nav-link" href="{{ route('welcome') }}">Home</a>
-    <a class="nav-link" href="{{ route('articoli') }}">Articoli</a>
-    <a class="nav-link" href="{{ route('chisono') }}">Chi sono</a>
-    <a class="nav-link" href="{{ route('contatti') }}">Contatti</a>
-    </nav>
+<x-navbar /> 
 <h1 class="container" style="text-align: center">Articoli</h1>  
 
 <!-- {{-- <img src="{{ asset('img/file.jpg') }}" alt=""> --}} -->
@@ -23,6 +18,7 @@
     @if($articoli)
     <ul class="list-unstyled">
     @foreach($articoli as $index => $articolo)
+    <!-- {{-- @if( $articolo['visible']) NON FUNZIA --}} -->
         <li>
             <div class="card mb-2">
                 <div class="card-body">

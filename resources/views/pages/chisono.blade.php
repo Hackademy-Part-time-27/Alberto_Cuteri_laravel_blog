@@ -8,12 +8,7 @@
 </head>
 
 <body>
-<nav class="nav">
-    <a class="nav-link" href="{{ route('welcome') }}">Home</a>
-    <a class="nav-link" href="{{ route('articoli') }}">Articoli</a>
-    <a class="nav-link" href="{{ route('chisono') }}">Chi sono</a>
-    <a class="nav-link" href="{{ route('contatti') }}">Contatti</a>
-    </nav>
+<x-navbar /> 
 
     {{-- questo è un commento blade --}}
 <h1> {{ $title }}</h1>  
