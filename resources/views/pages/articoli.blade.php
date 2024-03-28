@@ -17,21 +17,15 @@
 <div class="container">
     @if($articoli)
     <ul class="list-unstyled">
-    @foreach($articoli as $index => $articolo)
+        @foreach($articoli as $index => $articolo)
     <!-- {{-- @if( $articolo['visible']) NON FUNZIA --}} -->
-        <li>
-            <div class="card mb-2">
-                <div class="card-body">
-                <span>Categoria: {{ $articolo['categoria'] }}</span>
-                <!-- perchè non prende la classe titolo?? -->
-                <h4 class="titolo"><a href="{{ route('articolo', $index )}}">{{ $articolo['titolo'] }}</a></h4> 
-                <p>{{ $articolo['descrizione'] }}</p>
-                <div class="text-end">
-                    <a href="{{ route('articolo', $index )}}">Leggi</a>
-                </div>
-                </div>
-            </div>
-        </li>
+    <x-card 
+        :categoria="$articolo['categoria']" 
+        :titolo="$articolo['titolo']"
+        :descrizione="$articolo['descrizione']"
+        :index="$index"
+        :route="route('articolo', $index)"
+    />
         @endforeach
     </ul>
     @else
