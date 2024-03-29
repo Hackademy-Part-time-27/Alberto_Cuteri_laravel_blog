@@ -11,7 +11,9 @@
     <div class="container">
 <x-navbar /> 
 <h1 class="container" style="text-align: center">Articoli</h1>  
-
+<div>
+    <x-test text="Sono il contenuto di text" />
+</div>
 <!-- {{-- <img src="{{ asset('img/file.jpg') }}" alt=""> --}} -->
 
 <div class="container">
